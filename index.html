@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yassir's Agent World — Pixel Command Center</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌍</text></svg>">
+</head>
+<body>
+  <div id="app">
+    <!-- Top Bar -->
+    <header id="top-bar">
+      <div class="logo">
+        <span class="logo-icon">🌍</span>
+        <h1>Yassir's Agent World</h1>
+        <span class="agent-count" id="agent-count">0 agents</span>
+      </div>
+      <div class="top-controls">
+        <div class="status-legend">
+          <span class="legend-dot idle"></span> Idle
+          <span class="legend-dot working"></span> Working
+          <span class="legend-dot error"></span> Error
+        </div>
+        <button id="btn-toggle-sidebar" title="Toggle sidebar">☰</button>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <div id="main">
+      <!-- Canvas World -->
+      <div id="canvas-container">
+        <canvas id="world-canvas"></canvas>
+        <div id="tooltip" class="hidden"></div>
+        <div id="minimap-container">
+          <canvas id="minimap-canvas" width="180" height="120"></canvas>
+        </div>
+      </div>
+
+      <!-- Right Sidebar -->
+      <aside id="sidebar" class="open">
+        <div class="sidebar-tabs">
+          <button class="tab active" data-tab="agents">Agents</button>
+          <button class="tab" data-tab="zones">Zones</button>
+          <button class="tab" data-tab="stats">Stats</button>
+        </div>
+
+        <!-- Agents Tab -->
+        <div class="tab-content active" id="tab-agents">
+          <div class="search-box">
+            <input type="text" id="agent-search" placeholder="Search agents..." />
+          </div>
+          <div class="filter-row">
+            <select id="category-filter">
+              <option value="all">All Categories</option>
+            </select>
+            <select id="status-filter">
+              <option value="all">All Status</option>
+              <option value="idle">Idle</option>
+              <option value="working">Working</option>
+              <option value="error">Error</option>
+            </select>
+          </div>
+          <div id="agent-list" class="agent-list"></div>
+        </div>
+
+        <!-- Zones Tab -->
+        <div class="tab-content" id="tab-zones">
+          <div id="zone-list" class="zone-list"></div>
+        </div>
+
+        <!-- Stats Tab -->
+        <div class="tab-content" id="tab-stats">
+          <div id="stats-content" class="stats-content"></div>
+        </div>
+
+        <!-- Agent Detail Panel (slides in) -->
+        <div id="agent-detail" class="agent-detail hidden">
+          <button id="close-detail" class="close-btn">✕</button>
+          <div id="detail-content"></div>
+        </div>
+      </aside>
+    </div>
+
+    <!-- Dispatch Bar (future) -->
+    <div id="dispatch-bar" class="hidden">
+      <input type="text" id="dispatch-input" placeholder="Dispatch task to selected agent..." />
+      <button id="dispatch-send">Send ▸</button>
+    </div>
+  </div>
+
+  <script src="js/agents.js"></script>
+  <script src="js/renderer.js"></script>
+  <script src="js/camera.js"></script>
+  <script src="js/world.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/dispatch.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

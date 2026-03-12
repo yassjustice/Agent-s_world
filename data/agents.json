@@ -1,0 +1,374 @@
+{
+  "categories": [
+    { "id": "code", "name": "Code Quality", "color": "#4ade80", "zone": { "x": 2, "y": 2 }, "icon": "⚡" },
+    { "id": "arch", "name": "Architecture", "color": "#60a5fa", "zone": { "x": 8, "y": 2 }, "icon": "🏛️" },
+    { "id": "web", "name": "Web / UI / QA", "color": "#f472b6", "zone": { "x": 14, "y": 2 }, "icon": "🌐" },
+    { "id": "devops", "name": "DevOps / Infra", "color": "#fb923c", "zone": { "x": 2, "y": 8 }, "icon": "🔧" },
+    { "id": "seo", "name": "SEO", "color": "#a78bfa", "zone": { "x": 8, "y": 8 }, "icon": "🔍" },
+    { "id": "gsd", "name": "GSD (Get Shit Done)", "color": "#f87171", "zone": { "x": 14, "y": 8 }, "icon": "🚀" },
+    { "id": "data", "name": "Data / Research", "color": "#2dd4bf", "zone": { "x": 8, "y": 14 }, "icon": "📊" },
+    { "id": "other", "name": "Specialists", "color": "#fbbf24", "zone": { "x": 2, "y": 14 }, "icon": "🎯" }
+  ],
+  "agents": [
+    {
+      "id": "bug-auditor",
+      "name": "Bug Auditor",
+      "category": "code",
+      "description": "Runtime bug scanner that finds error handling gaps, race conditions, memory leaks, and null reference issues.",
+      "capabilities": ["Error handling analysis", "Race condition detection", "Memory leak scanning", "Null reference checks"],
+      "personality": "Paranoid detective — always suspecting something is broken"
+    },
+    {
+      "id": "code-auditor",
+      "name": "Code Auditor",
+      "category": "code",
+      "description": "Reviews code patterns, maintainability, complexity, and consistency across the codebase.",
+      "capabilities": ["Pattern review", "Complexity analysis", "Maintainability scoring", "Consistency checks"],
+      "personality": "Strict librarian — everything must be in its proper place"
+    },
+    {
+      "id": "code-fixer",
+      "name": "Code Fixer",
+      "category": "code",
+      "description": "Implements fixes from FIXES.md with production-quality code following project patterns.",
+      "capabilities": ["Fix implementation", "Pattern matching", "Quality assurance", "Regression prevention"],
+      "personality": "Skilled surgeon — precise cuts, clean stitches"
+    },
+    {
+      "id": "perf-auditor",
+      "name": "Perf Auditor",
+      "category": "code",
+      "description": "Analyzes bundle size, Core Web Vitals, slow queries, and memory leaks for performance.",
+      "capabilities": ["Bundle analysis", "Web Vitals", "Query optimization", "Memory profiling"],
+      "personality": "Speed demon — obsessed with milliseconds"
+    },
+    {
+      "id": "security-auditor",
+      "name": "Security Auditor",
+      "category": "code",
+      "description": "Comprehensive security analysis covering OWASP Top 10, injection, auth, secrets, and headers.",
+      "capabilities": ["OWASP Top 10", "Injection testing", "Auth analysis", "Secret scanning", "Header validation"],
+      "personality": "Paranoid bodyguard — trusts nobody, checks everything"
+    },
+    {
+      "id": "test-runner",
+      "name": "Test Runner",
+      "category": "code",
+      "description": "Runs tests and validates fixes across TypeScript, lint, and unit test suites.",
+      "capabilities": ["Test execution", "Lint validation", "TypeScript checks", "Fix verification"],
+      "personality": "Relentless QA — runs it one more time, just to be sure"
+    },
+    {
+      "id": "test-writer",
+      "name": "Test Writer",
+      "category": "code",
+      "description": "Auto-generates unit tests, integration tests, and finds coverage gaps in existing code.",
+      "capabilities": ["Unit test generation", "Integration tests", "Coverage analysis", "Edge case discovery"],
+      "personality": "Creative pessimist — imagines every way things could fail"
+    },
+    {
+      "id": "architect-reviewer",
+      "name": "Architect Reviewer",
+      "category": "arch",
+      "description": "Supervisor agent that coordinates auditors, validates fixes, and iterates until production-ready.",
+      "capabilities": ["Audit coordination", "Fix validation", "Quality gates", "Production readiness"],
+      "personality": "Wise elder — sees the big picture, connects the dots"
+    },
+    {
+      "id": "doc-auditor",
+      "name": "Doc Auditor",
+      "category": "arch",
+      "description": "Analyzes documentation coverage, finds missing docs, outdated comments, and API gaps.",
+      "capabilities": ["Coverage analysis", "Staleness detection", "API doc gaps", "Comment quality"],
+      "personality": "Meticulous historian — every change must be recorded"
+    },
+    {
+      "id": "fix-planner",
+      "name": "Fix Planner",
+      "category": "arch",
+      "description": "Creates prioritized fix plans from audit findings, generates FIXES.md with deduplication.",
+      "capabilities": ["Priority scoring", "Deduplication", "Plan generation", "Impact analysis"],
+      "personality": "Strategic general — knows which battles to fight first"
+    },
+    {
+      "id": "pr-writer",
+      "name": "PR Writer",
+      "category": "arch",
+      "description": "Generates pull request descriptions, summarizes changes, and creates review checklists.",
+      "capabilities": ["PR description", "Change summary", "Checklist generation", "Review prep"],
+      "personality": "Eloquent storyteller — makes every PR a clear narrative"
+    },
+    {
+      "id": "api-designer",
+      "name": "API Designer",
+      "category": "arch",
+      "description": "Creates REST and GraphQL API designs, generates OpenAPI/Swagger specs, designs endpoints.",
+      "capabilities": ["REST design", "GraphQL schemas", "OpenAPI specs", "Versioning strategy"],
+      "personality": "Perfectionist architect — every endpoint has a purpose"
+    },
+    {
+      "id": "api-tester",
+      "name": "API Tester",
+      "category": "web",
+      "description": "Tests API endpoints: discovery, validation, auth flows, and error handling verification.",
+      "capabilities": ["Endpoint discovery", "Auth flow testing", "Error handling", "Response validation"],
+      "personality": "Methodical hacker — probes every endpoint for weakness"
+    },
+    {
+      "id": "browser-qa-agent",
+      "name": "Browser QA",
+      "category": "web",
+      "description": "Navigates web apps via Chrome to find UI bugs, console errors, and UX issues.",
+      "capabilities": ["UI bug detection", "Console monitoring", "UX evaluation", "Cross-browser testing"],
+      "personality": "Picky user — clicks everything, complains about pixels"
+    },
+    {
+      "id": "console-monitor",
+      "name": "Console Monitor",
+      "category": "web",
+      "description": "Real-time console monitoring during browser sessions for errors, warnings, and logs.",
+      "capabilities": ["Error tracking", "Warning alerts", "Log aggregation", "Real-time monitoring"],
+      "personality": "Night watch — silently monitors, alerts on danger"
+    },
+    {
+      "id": "fullstack-qa-orchestrator",
+      "name": "Fullstack QA",
+      "category": "web",
+      "description": "Coordinates browser-qa-agent with code-fixer for complete test-fix-verify cycles.",
+      "capabilities": ["Test orchestration", "Fix coordination", "Verify cycles", "E2E workflows"],
+      "personality": "Drill sergeant — test, fix, verify, repeat!"
+    },
+    {
+      "id": "ui-auditor",
+      "name": "UI Auditor",
+      "category": "web",
+      "description": "Checks UI/UX consistency, design patterns, and accessibility (a11y) issues.",
+      "capabilities": ["Consistency checks", "A11y auditing", "Pattern validation", "Design review"],
+      "personality": "Design critic — notices the 1px misalignment"
+    },
+    {
+      "id": "visual-diff",
+      "name": "Visual Diff",
+      "category": "web",
+      "description": "Screenshot comparison for visual regression testing, captures before/after states.",
+      "capabilities": ["Screenshot capture", "Pixel comparison", "Regression detection", "Visual reports"],
+      "personality": "Eagle eye — spots changes invisible to humans"
+    },
+    {
+      "id": "db-auditor",
+      "name": "DB Auditor",
+      "category": "devops",
+      "description": "Audits database schema design, N+1 queries, indexes, and connection pooling.",
+      "capabilities": ["Schema review", "N+1 detection", "Index optimization", "Connection analysis"],
+      "personality": "Data philosopher — queries are poetry, indexes are art"
+    },
+    {
+      "id": "dep-auditor",
+      "name": "Dep Auditor",
+      "category": "devops",
+      "description": "Checks for outdated packages, vulnerabilities, licenses, and unused dependencies.",
+      "capabilities": ["Version checks", "CVE scanning", "License audit", "Unused detection"],
+      "personality": "Supply chain inspector — nothing gets in without a check"
+    },
+    {
+      "id": "deploy-checker",
+      "name": "Deploy Checker",
+      "category": "devops",
+      "description": "Pre-deployment validation: build, env vars, dependencies, migrations, health checks.",
+      "capabilities": ["Build validation", "Env check", "Migration verify", "Health checks"],
+      "personality": "Launch control — everything green before liftoff"
+    },
+    {
+      "id": "env-validator",
+      "name": "Env Validator",
+      "category": "devops",
+      "description": "Compares .env.example vs .env, checks for missing secrets and configuration.",
+      "capabilities": ["Env comparison", "Secret detection", "Config validation", "Missing var alerts"],
+      "personality": "Configuration nerd — one missing env var ruins the day"
+    },
+    {
+      "id": "infra-auditor",
+      "name": "Infra Auditor",
+      "category": "devops",
+      "description": "Infrastructure and deployment checker for env vars, headers, and database config.",
+      "capabilities": ["Infra review", "Header analysis", "DB config check", "Deployment audit"],
+      "personality": "Ops veteran — has seen every outage, prevents them all"
+    },
+    {
+      "id": "migration-agent",
+      "name": "Migration Agent",
+      "category": "devops",
+      "description": "Database migration specialist: schema migrations, data transforms, rollback scripts.",
+      "capabilities": ["Schema migrations", "Data transforms", "Rollback scripts", "ORM patterns"],
+      "personality": "Careful mover — never drops a table without a backup"
+    },
+    {
+      "id": "seo-auditor",
+      "name": "SEO Auditor",
+      "category": "seo",
+      "description": "SEO and discoverability: meta tags, OpenGraph, sitemap, and structured data.",
+      "capabilities": ["Meta tag audit", "OpenGraph check", "Sitemap validation", "Schema markup"],
+      "personality": "Search whisperer — knows what Google wants"
+    },
+    {
+      "id": "seo-content",
+      "name": "SEO Content",
+      "category": "seo",
+      "description": "Content quality reviewer: E-E-A-T signals, readability, depth, AI citation readiness.",
+      "capabilities": ["E-E-A-T analysis", "Readability scoring", "Content depth", "Citation readiness"],
+      "personality": "Content connoisseur — quality over quantity, always"
+    },
+    {
+      "id": "seo-performance",
+      "name": "SEO Performance",
+      "category": "seo",
+      "description": "Measures Core Web Vitals and page load performance with live browser testing.",
+      "capabilities": ["Core Web Vitals", "Load testing", "Performance scoring", "Optimization tips"],
+      "personality": "Speed oracle — predicts load times before they happen"
+    },
+    {
+      "id": "seo-schema-agent",
+      "name": "SEO Schema",
+      "category": "seo",
+      "description": "Schema markup expert: detects, validates, and generates Schema.org structured data.",
+      "capabilities": ["Schema detection", "JSON-LD generation", "Validation", "Rich result targeting"],
+      "personality": "Structured thinker — everything needs proper markup"
+    },
+    {
+      "id": "seo-sitemap-agent",
+      "name": "SEO Sitemap",
+      "category": "seo",
+      "description": "Validates XML sitemaps, generates new ones with industry templates.",
+      "capabilities": ["Sitemap validation", "Generation", "URL auditing", "Industry templates"],
+      "personality": "Map maker — charts every page in the domain"
+    },
+    {
+      "id": "seo-technical",
+      "name": "SEO Technical",
+      "category": "seo",
+      "description": "Technical SEO across 8 categories: crawlability, indexability, security, mobile, and more.",
+      "capabilities": ["Crawlability", "Indexability", "Security headers", "Mobile optimization", "JS rendering"],
+      "personality": "Technical detective — reads robots.txt for fun"
+    },
+    {
+      "id": "seo-visual",
+      "name": "SEO Visual",
+      "category": "seo",
+      "description": "Visual analyzer: screenshots, mobile rendering tests, above-the-fold content analysis.",
+      "capabilities": ["Screenshot capture", "Mobile rendering", "Above-fold analysis", "Visual reports"],
+      "personality": "Visual critic — judges every pixel above the fold"
+    },
+    {
+      "id": "gsd-codebase-mapper",
+      "name": "Codebase Mapper",
+      "category": "gsd",
+      "description": "Explores codebases and writes structured analysis documents for tech, architecture, quality.",
+      "capabilities": ["Codebase exploration", "Tech analysis", "Architecture mapping", "Quality assessment"],
+      "personality": "Cartographer — maps unknown territory with precision"
+    },
+    {
+      "id": "gsd-debugger",
+      "name": "GSD Debugger",
+      "category": "gsd",
+      "description": "Investigates bugs using scientific method, manages debug sessions and checkpoints.",
+      "capabilities": ["Scientific debugging", "Session management", "Checkpoint handling", "Root cause analysis"],
+      "personality": "Forensic scientist — follows the evidence, not assumptions"
+    },
+    {
+      "id": "gsd-executor",
+      "name": "GSD Executor",
+      "category": "gsd",
+      "description": "Executes GSD plans with atomic commits, deviation handling, and state management.",
+      "capabilities": ["Plan execution", "Atomic commits", "Deviation handling", "State management"],
+      "personality": "Disciplined soldier — follows the plan, adapts when needed"
+    },
+    {
+      "id": "gsd-integration-checker",
+      "name": "Integration Checker",
+      "category": "gsd",
+      "description": "Verifies cross-phase integration and E2E flows, ensures phases connect properly.",
+      "capabilities": ["Integration testing", "E2E flow checks", "Phase connection", "Workflow validation"],
+      "personality": "Bridge builder — makes sure all the pieces fit together"
+    },
+    {
+      "id": "gsd-phase-researcher",
+      "name": "Phase Researcher",
+      "category": "gsd",
+      "description": "Researches how to implement a phase before planning, produces RESEARCH.md.",
+      "capabilities": ["Implementation research", "Feasibility analysis", "Approach comparison", "Documentation"],
+      "personality": "Scholar — reads everything before writing a single line"
+    },
+    {
+      "id": "gsd-plan-checker",
+      "name": "Plan Checker",
+      "category": "gsd",
+      "description": "Verifies plans will achieve phase goals using goal-backward analysis.",
+      "capabilities": ["Goal verification", "Backward analysis", "Plan quality", "Gap detection"],
+      "personality": "Devil's advocate — challenges every assumption in the plan"
+    },
+    {
+      "id": "gsd-planner",
+      "name": "GSD Planner",
+      "category": "gsd",
+      "description": "Creates executable phase plans with task breakdown, dependencies, and verification.",
+      "capabilities": ["Task breakdown", "Dependency analysis", "Plan generation", "Goal alignment"],
+      "personality": "Master strategist — turns chaos into ordered steps"
+    },
+    {
+      "id": "gsd-project-researcher",
+      "name": "Project Researcher",
+      "category": "gsd",
+      "description": "Researches domain ecosystem before roadmap creation.",
+      "capabilities": ["Domain research", "Ecosystem analysis", "Best practices", "Competitive analysis"],
+      "personality": "Deep diver — surfaces with insights others miss"
+    },
+    {
+      "id": "gsd-research-synthesizer",
+      "name": "Research Synthesizer",
+      "category": "gsd",
+      "description": "Synthesizes research outputs from parallel agents into coherent SUMMARY.md.",
+      "capabilities": ["Research synthesis", "Pattern extraction", "Summary generation", "Conflict resolution"],
+      "personality": "Editor-in-chief — distills volumes into clarity"
+    },
+    {
+      "id": "gsd-roadmapper",
+      "name": "GSD Roadmapper",
+      "category": "gsd",
+      "description": "Creates project roadmaps with phase breakdown, requirements, and success criteria.",
+      "capabilities": ["Roadmap creation", "Phase planning", "Requirements mapping", "Success criteria"],
+      "personality": "Visionary planner — sees the path from here to done"
+    },
+    {
+      "id": "gsd-verifier",
+      "name": "GSD Verifier",
+      "category": "gsd",
+      "description": "Verifies phase goal achievement through goal-backward analysis of codebase.",
+      "capabilities": ["Goal verification", "Codebase analysis", "Achievement validation", "Report generation"],
+      "personality": "Quality gate — nothing passes without proof"
+    },
+    {
+      "id": "doc-writer",
+      "name": "Doc Writer",
+      "category": "other",
+      "description": "Generates README files, API docs, JSDoc/TSDoc comments, and inline documentation.",
+      "capabilities": ["README generation", "API documentation", "JSDoc/TSDoc", "Inline docs"],
+      "personality": "Technical author — explains complex things simply"
+    },
+    {
+      "id": "refactoring-agent",
+      "name": "Refactoring Agent",
+      "category": "other",
+      "description": "Extracts functions, renames symbols, restructures files, reduces complexity.",
+      "capabilities": ["Function extraction", "Symbol renaming", "File restructuring", "Complexity reduction"],
+      "personality": "Marie Kondo of code — if it doesn't spark joy, refactor it"
+    },
+    {
+      "id": "seed-generator",
+      "name": "Seed Generator",
+      "category": "data",
+      "description": "Creates realistic seed data based on database schemas for testing.",
+      "capabilities": ["Seed generation", "Schema analysis", "Realistic data", "Relationship handling"],
+      "personality": "Data chef — cooks up realistic test data on demand"
+    }
+  ]
+}
