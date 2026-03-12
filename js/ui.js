@@ -157,6 +157,14 @@ const UI = (() => {
 
     const statusLabels = { idle: '🟢 Idle', working: '🟡 Working', error: '🔴 Error' };
 
+    const taskInfo = agent.currentTask
+      ? `<div class="detail-section">
+           <h3>Current Task</h3>
+           <p style="color:var(--yellow);font-size:13px;">⚡ ${agent.currentTask}</p>
+           ${agent.liveSession ? `<p style="font-size:11px;color:var(--text-dim);margin-top:4px;">Session: ${agent.liveSession}</p>` : ''}
+         </div>`
+      : '';
+
     content.innerHTML = `
       <div class="detail-header">
         <img class="avatar-large" src="${largeCanvas.toDataURL()}" alt="${agent.name}" />
@@ -173,6 +181,8 @@ const UI = (() => {
           ${statusLabels[agent.status]}
         </span>
       </div>
+
+      ${taskInfo}
 
       <div class="detail-section">
         <h3>Description</h3>
@@ -211,7 +221,7 @@ const UI = (() => {
           <div class="zone-header">
             <span class="zone-icon">${cat.icon}</span>
             <span class="zone-name" style="color:${cat.color}">${cat.name}</span>
-            <span class="zone-count">${count} agents</span>
+            <span class="zone-count">${count} agent${count !== 1 ? 's' : ''}</span>
           </div>
         </div>
       `;
@@ -275,7 +285,7 @@ const UI = (() => {
 
       <div class="stat-card" style="margin-top:14px">
         <div class="stat-label" style="font-size:13px;color:var(--text)">🌍 Yassir's Agent World</div>
-        <div class="stat-label" style="margin-top:4px">v1.0 — Command Center</div>
+        <div class="stat-label" style="margin-top:4px">v1.1 — Live Bridge</div>
       </div>
     `;
   }
